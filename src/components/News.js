@@ -33,24 +33,7 @@ const News = (props) => {
         document.title = `NewsMonkey | ${capitalizeFirstLetter(props.category)} `
         newupdate()
         // eslint-disable-next-line
-
     }, [])
-    
-
-    // const preveventhandler = async () => {
-    //     setPage(page - 1)
-    //     newupdate()
-    // }
-    // const nexteventhandler = async () => {
-    //     setPage(page + 1)
-    //     newupdate()
-    // }
-
-    //     const nexteventhandler = async () => {
-    //     const nextPage = page + 1;
-    //     setPage(nextPage);
-    //     await newupdate(nextPage);
-    // }
 
     const fetchMoreData = async () => {
         setPage(page + 1)
