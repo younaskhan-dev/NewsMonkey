@@ -1,0 +1,50 @@
+/* Newsitem.css */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.badge {
+    font-size: 0.75rem;
+    padding: 0.5em 1em;
+}
+
+.card-title {
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    color: #666;
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.btn-dark {
+    border-radius: 8px;
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-dark:hover {
+    background-color: #333;
+    transform: scale(1.02);
+}
