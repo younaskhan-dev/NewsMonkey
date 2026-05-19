@@ -1,0 +1,36 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Gradient: Ultra-premium Indigo to Violet -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#4F46E5" />
+    </linearGradient>
+    <!-- Accent Gradient: Vibrant Orange/Gold to Pink -->
+    <linearGradient id="accentGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#EF4444" />
+    </linearGradient>
+  </defs>
+
+  <!-- High-fidelity Rounded Squircle Background -->
+  <rect x="2" y="2" width="28" height="28" rx="8" fill="url(#bgGrad)" />
+  
+  <!-- Subtle inner shadow ring -->
+  <rect x="2.5" y="2.5" width="27" height="27" rx="7.5" stroke="white" stroke-opacity="0.15" stroke-width="1" />
+
+  <!-- Monkey Ears & Head Outline -->
+  <circle cx="10" cy="14" r="3.5" fill="url(#accentGrad)" />
+  <circle cx="22" cy="14" r="3.5" fill="url(#accentGrad)" />
+  <rect x="8" y="11" width="16" height="12" rx="6" fill="#FFFFFF" />
+
+  <!-- Stylized Face Inner Heart Shape -->
+  <path d="M12 14.5C12 13.5 13 12.5 14 12.5C15 12.5 16 13.5 16 13.5C16 13.5 17 12.5 18 12.5C19 12.5 20 13.5 20 14.5C20 17 16 19.5 16 19.5C16 19.5 12 17 12 14.5Z" fill="#1E1B4B" />
+
+  <!-- Mini Eyes -->
+  <circle cx="14" cy="14.5" r="0.75" fill="#FFFFFF" />
+  <circle cx="18" cy="14.5" r="0.75" fill="#FFFFFF" />
+
+  <!-- Play/News Signal Overlay (Top-Right) -->
+  <circle cx="22" cy="9" r="4" fill="url(#accentGrad)" />
+  <path d="M21 7.5L24 9L21 10.5V7.5Z" fill="#FFFFFF" />
+</svg>

@@ -1,70 +1,145 @@
-# Getting Started with Create React App
+# 🐵 NewsMonkey — Premium AI-Powered Social News SaaS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+NewsMonkey is a state-of-the-art social news aggregator and reader web application designed to deliver real-time news with premium AI tools, high-fidelity responsive styling, integrated user feeds, and seamless speech capabilities.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Key Features
 
-### `npm start`
+* **🤖 AI-Powered Article Summaries**: Click the `✨ AI Summary` button on any card to get instant, cached 3-bullet points generated using Google Gemini AI models.
+* **🎧 Audio News Reader (Podcast Mode)**: Real-time text-to-speech rendering utilizing the browser's native `Web Speech API`. Includes an animated live equalizer soundwave and fully featured playback controls (Play, Pause, Resume, Stop).
+* **📱 Premium Responsive Layouts**: Tailored styling systems across mobile, tablet, and wide desktop views:
+  * **Navbar**: Two-tier mobile menu header containing a full-width search input similar to premium mobile services.
+  * **Filter Bar**: Touch-friendly horizontal mobile scroll container for categories.
+  * **News Cards**: Flexible two-tier desktop grid and mobile stacked action cards.
+* **🛡️ Security & Authentication**: Fully secured client sessions via **Clerk Authentication** featuring user profiles, sync-to-database backend endpoints, and custom glassmorphic `AuthModal` action-gating.
+* **💬 Rich Social Engagements**: Users can save/bookmark news stories, write comments inside dedicated modal panels, and like articles.
+* **🗂️ Personalized "For You" Segmented Feed**: Tailored headlines serving only categories curated by signed-in users.
+* **📊 Administrator Dashboard**: High-level platform statistics (total users, bookmarks, comments) and advanced administrative tools to update user roles.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Architecture & Technology Stack
 
-### `npm test`
+The application is structured as a MERN hybrid, splitting front-end layouts and back-end REST APIs.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend (Next.js Application)
+* **Framework**: React 19 (Next.js 16.2.6 App Router with Turbopack)
+* **State Management**: Zustand (stores query indices, search histories, and filtering arrays)
+* **Style System**: Tailwind CSS, Radix UI primitives, Lucide React icons
+* **Animations**: Framer Motion transitions and equalizer wave physics
+* **Scroll Engine**: `react-infinite-scroll-component`
 
-### `npm run build`
+### Backend (Express Server)
+* **Environment**: Node.js, Express.js
+* **Database**: MongoDB Atlas using Mongoose ODM
+* **Auth Verification**: Clerk Express auth middleware wrapper
+* **NLP & AI Engine**: Google Gemini API SDK
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📂 Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```text
+newsapp/
+├── backend/                  # Node.js + Express API Server
+│   ├── config/               # DB Connection Configurations
+│   ├── controllers/          # Business logic handlers (Users, Likes, Summaries)
+│   ├── middleware/           # Clerk authentication & role validators
+│   ├── models/               # MongoDB Mongoose schemas
+│   ├── routes/               # Express endpoint routes
+│   └── server.js             # Main server entry file
+│
+└── src/                      # Next.js Frontend Application
+    ├── app/                  # App Router Pages (category, dashboard, profiles)
+    ├── components/           # Reusable UI widgets (NewsItem, Navbar, CommentSection)
+    │   └── ui/               # Radix & Base design system components
+    ├── lib/                  # Centralized API fetch layers
+    └── store/                # Zustand global state manager (useNewsStore)
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## ⚙️ Environment Configuration
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To run this project locally, configure the following environmental variables:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 1. Frontend Configuration
+Create a `.env.local` file inside the root directory:
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2. Backend Configuration
+Create a `.env` file inside the `backend/` directory:
+```env
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+GEMINI_API_KEY=your_gemini_ai_api_key
+FRONTEND_URL=http://localhost:3000
+```
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🚀 Installation & Local Development
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Follow these steps to spin up the development environment:
 
-### Code Splitting
+### Step 1: Clone the repository
+```bash
+git clone <repository_url>
+cd newsapp
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Step 2: Set up & Run the Backend Server
+```bash
+cd backend
+npm install
+npm run start
+```
+*The backend server should start running at `http://localhost:5000`.*
 
-### Analyzing the Bundle Size
+### Step 3: Set up & Run the Frontend Client
+Open a new terminal session in the root folder:
+```bash
+npm install
+npm run dev
+```
+*Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🔄 Feature Execution Flows
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### AI Article Summarization Pipeline
+```
+[User Clicks AI Summary]
+           │
+           ▼
+[Client checks API caching] ──> (GET /api/summaries?articleUrl=...)
+           │
+           ├──► [Cache Hit]  ──► [Return Saved Bullet Points]
+           │
+           └──► [Cache Miss] ──► [Call Gemini API] ──► [Save to DB] ──► [Return]
+```
 
-### Advanced Configuration
+### Authentication Lock Flow
+```
+[Gated Action (Like/Bookmark)] ──► [Check Session State via Clerk]
+                                              │
+                    ┌─────────────────────────┴────────────────────────┐
+                    ▼                                                  ▼
+             [User Logged In]                                  [User Logged Out]
+                    │                                                  │
+                    ▼                                                  ▼
+         [Perform action in DB]                            [Pop up glassmorphic AuthModal]
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📄 License
+This project is open-source and available under the [MIT License](LICENSE).
