@@ -59,6 +59,64 @@ app.get('/', (req, res) => {
   res.send('NewsMonkey Backend API is running...');
 });
 
+// GNews API Routes
+app.get('/api/news/top-headlines', async (req, res) => {
+  try {
+    const {
+      category = 'general',
+      lang = 'en',
+      country = 'us',
+      max = 9,
+      page = 1,
+    } = req.query;
+
+    const apiKey = process.env.GNEWS_API_KEY;
+
+    const url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=${lang}&country=${country}&max=${max}&page=${page}&apikey=${apiKey}`;
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).json({
+      message: 'Failed to fetch top headlines',
+      error: error.message,
+    });
+  }
+});
+
+app.get('/api/news/search', async (req, res) => {
+  try {
+    const {
+      q = 'news',
+      lang = 'en',
+      country = 'us',
+      max = 9,
+      page = 1,
+      from,
+    } = req.query;
+
+    const apiKey = process.env.GNEWS_API_KEY;
+
+    let url = `https://gnews.io/api/v4/search?q=${encodeURIComponent(q)}&lang=${lang}&country=${country}&max=${max}&page=${page}&apikey=${apiKey}`;
+
+    if (from) {
+      url += `&from=${from}`;
+    }
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).json({
+      message: 'Failed to search news',
+      error: error.message,
+    });
+  }
+});
+
 // Error Handling Middleware
 app.use((err, req, res, next) => {
   console.error('[Server Error]:', err.stack || err.message || err);
@@ -67,6 +125,8 @@ app.use((err, req, res, next) => {
     error: process.env.NODE_ENV === 'development' ? err : {},
   });
 });
+
+
 
 
 const PORT = process.env.PORT || 5000;

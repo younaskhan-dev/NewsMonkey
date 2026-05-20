@@ -242,7 +242,7 @@ export default function DashboardPage() {
                           </a>
                         </CardTitle>
                       </CardHeader>
-                      <CardContent className="p-4 pt-0 flex-grow">
+                      <CardContent className="p-4 pt-0 grow">
                         <p className="text-xs text-muted-foreground line-clamp-3 leading-relaxed">{article.description}</p>
                       </CardContent>
                     </Card>
@@ -280,7 +280,7 @@ export default function DashboardPage() {
                       <Card key={bookmark._id} className="overflow-hidden flex flex-col h-full rounded-2xl border shadow-sm hover:shadow-md transition-shadow bg-card">
                         <div className="aspect-video w-full bg-muted relative overflow-hidden">
                           <img src={bookmark.image || 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop'} alt={bookmark.title} className="object-cover w-full h-full" />
-                          <Badge className="absolute top-3 left-3 bg-background text-foreground font-bold truncate max-w-[140px] shadow-md">{bookmark.source || 'News'}</Badge>
+                          <Badge className="absolute top-3 left-3 bg-background text-foreground font-bold truncate max-w-35 shadow-md">{bookmark.source || 'News'}</Badge>
                         </div>
                         <CardHeader className="p-5 pb-3">
                           <CardTitle className="text-base font-bold line-clamp-2 hover:text-primary transition-colors">
@@ -289,10 +289,10 @@ export default function DashboardPage() {
                             </a>
                           </CardTitle>
                         </CardHeader>
-                        <CardContent className="p-5 pt-0 flex-grow">
+                        <CardContent className="p-5 pt-0 grow">
                           <p className="text-xs text-muted-foreground line-clamp-3 leading-relaxed">{bookmark.description}</p>
                         </CardContent>
-                        <div className="p-5 pt-0 mt-auto flex items-center gap-2 border-t pt-4">
+                        <div className="p-5 mt-auto flex items-center gap-2 border-t pt-4">
                           <Button asChild size="sm" className="flex-1 rounded-xl font-bold shadow-xs">
                             <a href={bookmark.url} target="_blank" rel="noopener noreferrer">
                               Read Article <ExternalLink className="w-3.5 h-3.5 ml-1.5" />
@@ -400,7 +400,7 @@ export default function DashboardPage() {
                         {allUsers.map((u) => (
                           <tr key={u._id} className="hover:bg-muted/30 transition-colors">
                             <td className="p-4 pl-6 font-bold text-foreground">{u.name}</td>
-                            <td className="p-4 text-muted-foreground truncate max-w-[120px] sm:max-w-none">{u.email}</td>
+                            <td className="p-4 text-muted-foreground truncate max-w-30 sm:max-w-none">{u.email}</td>
                             <td className="p-4 text-xs text-muted-foreground hidden sm:table-cell">{new Date(u.createdAt).toLocaleDateString()}</td>
                             <td className="p-4 pr-6">
                               <select

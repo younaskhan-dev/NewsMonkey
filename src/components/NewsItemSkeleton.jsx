@@ -16,7 +16,7 @@ export const NewsItemSkeleton = () => {
           <Skeleton width={60} height={16} className="ml-auto" />
         </div>
       </CardHeader>
-      <CardContent className="p-5 pt-0 flex-grow">
+      <CardContent className="p-5 pt-0 grow">
         <Skeleton count={3} height={16} className="mb-1.5" />
       </CardContent>
       <CardFooter className="p-5 pt-0 mt-auto flex gap-3">

@@ -84,7 +84,7 @@ const FilterBar = () => {
               <select
                 value={sourceFilter}
                 onChange={(e) => setSourceFilter(e.target.value)}
-                className="bg-transparent text-xs font-semibold focus:outline-none cursor-pointer text-foreground max-w-[140px] sm:max-w-[180px] truncate pr-1"
+                className="bg-transparent text-xs font-semibold focus:outline-none cursor-pointer text-foreground max-w-35 sm:max-w-45 truncate pr-1"
               >
                 {availableSources.map((s) => (
                   <option key={s} value={s} className="bg-background text-foreground font-medium">

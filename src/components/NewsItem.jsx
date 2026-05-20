@@ -274,7 +274,7 @@ const NewsItem = ({ title, description, urlToImage, url, author, publishedAt, so
                 {category}
               </Badge>
             )}
-            <Badge className="bg-background/90 text-foreground backdrop-blur-md px-3 py-1 text-xs font-medium rounded-full shadow-lg pointer-events-auto truncate max-w-[150px]">
+            <Badge className="bg-background/90 text-foreground backdrop-blur-md px-3 py-1 text-xs font-medium rounded-full shadow-lg pointer-events-auto truncate max-w-37.5">
               {source || 'Unknown Source'}
             </Badge>
           </div>
@@ -289,7 +289,7 @@ const NewsItem = ({ title, description, urlToImage, url, author, publishedAt, so
           </CardTitle>
 
           <div className="flex flex-wrap items-center gap-4 mt-3 text-xs text-muted-foreground font-medium">
-            <span className="flex items-center gap-1.5 max-w-[140px] truncate">
+            <span className="flex items-center gap-1.5 max-w-35 truncate">
               <User className="w-3.5 h-3.5 text-primary" />
               <span className="truncate">{author || source || 'Editorial'}</span>
             </span>
@@ -305,7 +305,7 @@ const NewsItem = ({ title, description, urlToImage, url, author, publishedAt, so
         </CardHeader>
 
         {/* Content */}
-        <CardContent className="p-5 pt-0 flex-grow">
+        <CardContent className="p-5 pt-0 grow">
           <p className="text-sm text-muted-foreground/90 line-clamp-3 leading-relaxed">
             {description || "No detailed description available for this headline. Click below to read the complete article on the official source website."}
           </p>
@@ -315,7 +315,7 @@ const NewsItem = ({ title, description, urlToImage, url, author, publishedAt, so
         <CardFooter className="p-5 pt-0 mt-auto flex flex-col gap-3">
           {/* Top Row: Primary Actions (Read Story + AI Summary + Listen) */}
           <div className="flex items-center gap-1.5 w-full overflow-x-auto pb-1 sm:pb-0 no-scrollbar">
-            <Button asChild className="flex-1 group rounded-xl font-bold shadow-md hover:shadow-lg transition-all duration-300 min-w-[110px]">
+            <Button asChild className="flex-1 group rounded-xl font-bold shadow-md hover:shadow-lg transition-all duration-300 min-w-27.5">
               <a href={url} target="_blank" rel="noopener noreferrer">
                 Read Story
                 <ExternalLink className="ml-1.5 w-4 h-4 transition-transform group-hover:translate-x-1 shrink-0" />

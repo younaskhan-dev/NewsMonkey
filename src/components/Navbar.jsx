@@ -153,7 +153,7 @@ const Navbar = () => {
           <div className="p-2 bg-primary text-primary-foreground rounded-xl shadow-md group-hover:scale-105 transition-transform">
             <Newspaper className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
-          <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent font-black">
+          <span className="bg-linear-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent font-black">
             NewsMonkey
           </span>
         </Link>

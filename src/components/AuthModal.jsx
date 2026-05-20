@@ -63,7 +63,7 @@ export default function AuthModal({ isOpen, onClose, actionName = 'access this f
           </motion.div>
 
           <DialogHeader className="gap-2">
-            <DialogTitle className="text-xl sm:text-2xl font-black tracking-tight bg-gradient-to-r from-foreground via-foreground/95 to-foreground/80 bg-clip-text text-transparent">
+            <DialogTitle className="text-xl sm:text-2xl font-black tracking-tight bg-linear-to-r from-foreground via-foreground/95 to-foreground/80 bg-clip-text text-transparent">
               {details.title}
             </DialogTitle>
             <DialogDescription className="text-sm text-muted-foreground leading-relaxed mt-2">
